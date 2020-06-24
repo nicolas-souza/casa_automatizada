@@ -7,19 +7,10 @@ const bool LIGAR = LOW;
 //Limite de luminosidade
 const int LIMITE_LUZ = 700;
 
-//classe para funcionamento de comodos dentro de casa
+//classe para funcionamento de comodos de uma casa
 class Comodo {
 
  int pino_sensor, pino_lampada;
-
-  public:
-
-  Comodo(int pino_entrada, int pino_saida){
-     pino_sensor = pino_entrada;
-     pino_lampada = pino_saida;
-    pinMode(pino_sensor,INPUT);
-    pinMode(pino_lampada,OUTPUT);
-  }
 
     int ler_digital(){
         if (digitalRead(pino_sensor)==return_sensor){
@@ -41,6 +32,15 @@ class Comodo {
     void desligar(){
         digitalWrite(pino_lampada,!LIGAR);
     }
+
+  public:
+
+  Comodo(int pino_entrada, int pino_saida){
+     pino_sensor = pino_entrada;
+     pino_lampada = pino_saida;
+    pinMode(pino_sensor,INPUT);
+    pinMode(pino_lampada,OUTPUT);
+  }
 
     void update_digital(){
         if(ler_digital()){
